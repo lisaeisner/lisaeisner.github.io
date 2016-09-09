@@ -1,0 +1,77 @@
+@include keyframes(fadeIn) {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+html { background-color: #000; }
+
+// Assign bg image to pseudo-element for transparency support
+html::after {
+  @include animation(fadeIn .75s ease-in);
+  @include animation-fill-mode(backwards);
+  background-image: url(image-path("bg.jpg"));
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  content: '';
+  display: block;
+  height: 100%;
+  left: 0;
+  opacity: 0.65;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+
+  @include media($medium-screen-up) {
+    opacity: 0.85;
+  }
+}
+
+.container {
+  @include animation(fadeIn 1s ease-in);
+  @include animation-fill-mode(backwards);
+  @include animation-delay(0.75s);
+  @include display(flex);
+  @include flex-wrap(wrap);
+  @include justify-content(flex-start);
+  @include outer-container;
+  padding: $base-spacing;
+
+  @include media($large-screen-up) {
+    padding: 0;
+  }
+}
+
+.header {
+  @include flex(100%);
+  margin-bottom: $base-spacing;
+  margin-top: $base-spacing;
+
+  @include media($medium-screen-up) {
+    margin-bottom: $base-spacing * 3;
+    margin-top: $base-spacing * 2;
+  }
+
+  img { opacity: 0.8; width: 100%; }
+}
+
+.column {
+  @include flex(100%);
+  @include media($medium-screen-up) { @include flex(0 25%); }
+
+  section {
+    margin-bottom: $small-spacing;
+
+    @include media($medium-screen-up) {
+      margin-bottom: $base-spacing;
+    }
+  }
+}
+
+.section-title {
+  color: #901515;
+  font-size: 1.125em;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
