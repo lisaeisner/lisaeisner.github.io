@@ -1,5 +1,7 @@
 // Typography
-$base-font-family: "Futura", sans-serif;
+$futura: "futura-pt", Futura, Roboto, Helvetica, Arial, sans-serif;
+
+$base-font-family: $futura;
 $heading-font-family: $base-font-family;
 
 // Font Sizes
