@@ -649,6 +649,9 @@ html::after {
       .column section {
         margin-bottom: 1.5em; } }
 
+section {
+  font-size: 1.25rem; }
+
 .section-title {
   color: #901515;
   font-size: 1.125em;
